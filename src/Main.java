@@ -30,7 +30,7 @@ public class Main {
 		in.close();
 	}
 	
-	
+	//Prints the tree recursively. 
 	private static void printTree(int startRow, int currentRow, int numSpace) {
 		if (currentRow <= 1) {
 			int max;
@@ -58,7 +58,7 @@ public class Main {
 		}
 	}
 	
-	//Prints the number of 
+	//Prints the input character a given number of times.
 	private static void printPadding(int num, char s) {
 		for(int i = 0; i<num; i++) {
 			System.out.print(s);
