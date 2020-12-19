@@ -1,15 +1,27 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		int numRows = 7;
+		System.out.print("How many rows do you want?");
+		int numRows;
+		try{
+			numRows = in.nextInt();
+		}catch(Exception e) {
+			System.out.println();
+			System.out.println("Oops, you didn't enter a number");
+			Random ran = new Random();
+			numRows = ran.nextInt(10);
+			System.out.println("Here's a Demo Tree with " + numRows + " row(s)");
+		}
+
 		for(int i = 0; i <=2; i++) {
 			System.out.println();
 		}
 		if(numRows <3) {
-			System.out.println("Small Tree!");
+			System.out.println("Small tree, try a larger number!");
 			for(int i = 0; i <=2; i++) {
 				System.out.println();
 			}
