@@ -5,7 +5,7 @@ public class Main {
 
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
-		System.out.print("How many rows do you want?");
+		System.out.print("How many rows do you want (enter a non-negative number)?");
 		int numRows;
 		try{
 			numRows = in.nextInt();
@@ -27,7 +27,10 @@ public class Main {
 			}
 		}
 		printTree(numRows, numRows,1);
+		in.close();
 	}
+	
+	
 	private static void printTree(int startRow, int currentRow, int numSpace) {
 		if (currentRow <= 1) {
 			int max;
@@ -36,30 +39,29 @@ public class Main {
 			}else {
 				max = 4*(startRow-1) + 1;
 			}
-			printPadding(numSpace/2 +2 , "_");
+			printPadding(numSpace/2 +2 , '_');
 			if(currentRow ==1) {
 				System.out.print("|");
 			}
-			printPadding(numSpace/2 + 2, "_");
+			printPadding(numSpace/2 + 2, '_');
 		}else {
 			int numGroups = (int) Math.pow(2, currentRow-2);
-			printPadding((numSpace)/2+2, " ");
+			printPadding((numSpace)/2+2, ' ');
 			for(int i = 0; i<numGroups; i++) {
 				System.out.print("|");
-				printPadding(numSpace, "_");
+				printPadding(numSpace, ' ');
 				System.out.print("|");
-				printPadding(numSpace, " ");
+				printPadding(numSpace, ' ');
 			}
 			System.out.println();
 			printTree(startRow, currentRow-1, numSpace*2 +1);
 		}
 	}
 	
-	private static void printPadding(int num, String s) {
+	//Prints the number of 
+	private static void printPadding(int num, char s) {
 		for(int i = 0; i<num; i++) {
 			System.out.print(s);
 		}
 	}
-	
-
 }
