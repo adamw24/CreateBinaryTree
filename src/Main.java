@@ -49,7 +49,7 @@ public class Main {
 			printPadding((numSpace)/2+2, ' ');
 			for(int i = 0; i<numGroups; i++) {
 				System.out.print("|");
-				printPadding(numSpace, ' ');
+				printPadding(numSpace, '_');
 				System.out.print("|");
 				printPadding(numSpace, ' ');
 			}
