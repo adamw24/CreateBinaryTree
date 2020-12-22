@@ -1,6 +1,6 @@
 # CreateBinaryTree
 
-Draws a tree with the the number of rows n as an input.
+Draws a binary tree with height h.
 
 
 
