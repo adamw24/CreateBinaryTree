@@ -6,6 +6,7 @@ from time import sleep
 from pygame.event import wait
 from numpy.core.defchararray import lower
 
+#Awaits user input for the height of the tree and the angle of separation.
 try:
     print("\n")
     h = int(input("height of tree: "))
@@ -36,14 +37,9 @@ def main():
     global display_surf
     display_surf = pygame.display.set_mode((window_width,window_height))
     pygame.display.set_caption('Binary Tree Drawer')
+    display_surf.fill(BLACK)
 
-#Draws the black window and divider line. 
-def drawArena():
-    display_surf.fill((0,0,0))
-    #Draw outline of arena
-    pygame.draw.rect(display_surf, BLACK, ((0,0),(window_width,window_height)))
-
-
+#Draws the trunk of the tree if height >=1.
 def drawTreeTrunk(h):
     if (h >= 1):
         x1 = window_width/2
@@ -53,6 +49,7 @@ def drawTreeTrunk(h):
         pygame.draw.line(display_surf,WHITE,p1,p2,4)
         drawTreeLeaves(h-1,length-length_scalar,0,x1,y1-length);
 
+#Draws each branch of the tree recursively.
 def drawTreeLeaves(h, length, start_angle,x1,y1):
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -77,7 +74,7 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
-    drawArena();
+    display_surf.fill((0,0,0))
     drawTreeTrunk(h);
     pygame.display.flip()
     wait(1000)
